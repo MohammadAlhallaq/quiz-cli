@@ -28,7 +28,19 @@ func main() {
 	}
 
 	problems := parseLines(lines)
-	fmt.Println(problems)
+
+	for i, p := range problems {
+		fmt.Printf("Problem #%d: %s = \n", i+1, p.q)
+		var answer string
+		_, err := fmt.Scanf("%s\n", &answer)
+		if err != nil {
+			exit(err.Error())
+		}
+		if answer == p.a {
+			fmt.Println("Correct!")
+		}
+	}
+
 }
 
 func exit(msg string) {
